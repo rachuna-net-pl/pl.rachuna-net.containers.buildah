@@ -1,4 +1,4 @@
-# <img src=".gitlab/avatar.png" alt="buildah" height="20"/> Vagrant
+# <img src=".gitlab/avatar.png" alt="buildah" height="20"/> Buildah
 
 [![](https://gitlab.com/pl.rachuna-net/containers/buildah/-/badges/release.svg)](https://gitlab.com/pl.rachuna-net/containers/buildah/-/releases)
 [![](https://gitlab.com/pl.rachuna-net/containers/buildah/badges/main/pipeline.svg)](https://gitlab.com/pl.rachuna-net/containers/buildah/-/commits/main)

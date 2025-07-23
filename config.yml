@@ -1,0 +1,56 @@
+---
+base_image: ubuntu:noble
+
+labels:
+  maintainer: "Maciej Rachuna <rachuna.maciej@gmail.com>"
+  description: Kontener z narzędziem Buildah, wykorzystywany w procesach budowania kontenerów w środowisku GitLab CI.
+  version: "1.0.0"
+  image_source: "https://gitlab.com/pl.rachuna-net/containers/buildah"
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+  TF_IN_AUTOMATION: "true"
+  LANG: C.UTF-8
+
+before_build_commands: []
+
+packages:
+  - bash
+  - buildah
+  - curl
+  - fuse-overlayfs
+  - git
+  - gzip
+  - gnupg2
+  - iproute2
+  - iputils-ping 
+  - jq
+  - dnsutils
+  - libssl3
+  - lsb-release
+  - openssh-client
+  - ca-certificates
+  - gnupg
+  - slirp4netns
+  - uidmap
+  - sudo
+  - software-properties-common
+  - yq
+  - zip
+
+
+custom_repos: []
+
+extra_commands:
+  - chmod 777 /opt/scripts
+  - chmod 777 /opt/scripts/*
+  - buildah --version
+
+copy:
+  - source: scripts/
+    destination: /opt/scripts/
+
+user: {}
+
+entrypoint: "/opt/scripts/entrypoint.bash"
+cmd: "/bin/bash"
